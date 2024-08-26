@@ -80,8 +80,8 @@ FastAPI application was created to provide endpoints for uploading, parsing logs
 
 1. **Clone the Repository**:
     ```sh
-    git clone <repo-url>
-    cd CloudWalk_Assessment
+    git clone https://github.com/elrf3lipes/quake3_log_parser
+    cd quake3_log_parser
     ```
 
 2. **Create and Activate a Virtual Environment**:
