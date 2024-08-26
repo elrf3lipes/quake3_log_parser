@@ -56,14 +56,6 @@ The application is dockerized to simplify deployment. To build and run the Docke
 
 ### Overview
 
-This FastAPI application provides endpoints for parsing and analyzing Quake log files. It supports uploading and parsing logs, downloading logs from a remote source, and retrieving various statistics. 
-The API directly accesses and temporarily processes the log file from a GitHub Gist. A global cache dictionary stores the parsed log data keyed by the file path, which is used by all endpoints. 
-The cache is updated when a new log file is parsed and eventually deleted after processing.
-
-## FastAPI Application Documentation
-
-### Overview
-
 This FastAPI application provides endpoints for parsing and analyzing Quake log files. It supports uploading, parsing logs, and retrieving various statistics. The API directly accesses and temporarily processes log files from GitHub Gists, with parsed data stored in a global cache.
 
 ### Endpoints
