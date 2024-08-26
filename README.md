@@ -5,24 +5,29 @@
 ## Overview
 
 This project is a Quake 3 Arena log parser designed to read and analyze game log files. It provides functionalities to parse logs, track game statistics, and generate detailed reports. 
-The application is dockerized for easy deployment and scalability.
+Application is modular and dockerized with integrated FastAPI for easy deployment and scalability.
 
 ## Project Structure
 
-- **`.github/workflows/ci-cd.yml`**: CI/CD configuration file.
-- **`.pytest_cache/`**: Pytest cache directory.
-- **`quake_api/main.py`**: FastAPI application with endpoints to interact with parsed log data.
-- **`venv/`**: Virtual environment directory.
-- **`.dockerignore`**: Docker ignore file.
-- **`.gitignore`**: Git ignore file.
-- **`Dockerfile`**: Dockerfile for containerizing.
-- **`quake_log.txt`**: Example log file used for local development.
-- **`quake_log_parser.py`**: Coordinates log parsing and report generation.
-- **`quake_log_utils.py`**: Contains utility functions for parsing log data.
-- **`reporting.py`**: Generates reports and rankings from parsed game data.
-- **`requirements.txt`**: Python dependencies.
-- **`test_log.txt`**: Test data file for verifying parsing functionality.
-- **`test_quake_log_utils.py`**: Unit tests for the Quake log parsing utilities.
+Quake3_log_parser
+├── .github
+│   └── workflows
+│       └── ci-cd.yml - CI/CD configuration file.
+├── .pytest_cache
+├── quake_api
+│   └── main.py - FastAPI application with endpoints to interact with parsed log data.
+├── venv
+├── .dockerignore
+├── .gitignore
+├── Dockerfile
+├── quake_log.txt - Example log file used for local development.
+├── quake_log_parser.py - Coordinates log parsing and report generation.
+├── quake_log_utils.py - Contains utility functions for parsing log data.
+├── reporting.py - Generates reports and rankings from parsed game data.
+├── requirements.txt
+├── test_log.txt - Test data file for verifying parsing functionality.
+└── test_quake_log_utils.py - Unit tests for the Quake log parsing utilities.
+
 
 ## Features
 
