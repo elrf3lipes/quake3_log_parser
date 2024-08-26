@@ -13,9 +13,10 @@ venv/
 
 # Docker
 *.dockerignore
-Dockerfile
-docker-compose.yml
 
 # IDEs
 .vscode/
 .idea/
+
+# System files
+.DS_Store
