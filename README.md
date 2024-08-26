@@ -32,11 +32,12 @@ Quake3_log_parser
 
 ## Features
 
-- **Log Parsing**: Uses Python's `re` module to extract match data from Quake 3 Arena logs.
-- **Data Handling**: Utilizes `DirectDict` for efficient data management.
+- **Log Parsing**: Python `RegEx` module to extract match data from Quake 3 Arena logs.
+- **Data Handling**: `DirectDict` for efficient data management.
 - **Statistics Tracking**: Keeps track of kills, deaths, and other match statistics.
 - **Handling `<world>` and Self-Kills**: Adjusts player scores for kills by `<world>` and self-kills based on the Quake 3 Arena -1 frag behavior, where players lose a frag for deaths not caused by other players.
-- **Reporting**: Generates match reports and player rankings.
+- **Reporting**: Generates match reports and player rankings for all games.
+- **CI/CD Pipeline**: Automated build, test, and deployment processes are managed via GitHub Actions, ensuring continuous integration and delivery.
 
 ## Dockerization
 
@@ -56,16 +57,16 @@ The application is dockerized to simplify deployment. To build and run the Docke
 
 ### Overview
 
-This FastAPI application provides endpoints for parsing and analyzing Quake log files. It supports uploading, parsing logs, and retrieving various statistics. The API directly accesses and temporarily processes log files from GitHub Gists, with parsed data stored in a global cache.
+FastAPI application was created to provide endpoints for uploading, parsing logs, and retrieving various statistics. The API directly accesses and processes log files from the GitHub [Gist](https://gist.github.com/cloudwalk-tests/be1b636e58abff14088c8b5309f575d8), with parsed data stored in a temporary global cache.
 
 ### Endpoints
 
-- **POST /parse_log** - Upload and parse a log file.
-- **GET /download_and_parse** - Download a log file from GitHub Gist, parse it, and delete the file.
-- **GET /player_kills** - Retrieve player kill statistics from cached log data.
-- **GET /means_usage** - Retrieve usage statistics of different kill means from cached log data.
-- **GET /total_kills** - Retrieve the total number of kills from cached log data.
-- **GET /used_means_by_player** - Retrieve means of death used by each player from cached log data.
+- **POST /parse_log** - Uploads and parses a log files.
+- **GET /download_and_parse** - Download a log file from GitHub Gist, parses it, and deletes the file.
+- **GET /player_kills** - Show player kills statistics for all games.
+- **GET /means_usage** - Show usage statistics of different kill means for all games.
+- **GET /total_kills** - Responds with the total number of kills for all games.
+- **GET /used_means_by_player** - List means of death used by each player for all games.
 
 ### Responses
 
