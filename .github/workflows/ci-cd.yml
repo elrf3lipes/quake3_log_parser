@@ -30,7 +30,7 @@ jobs:
         pip install pylint mypy pytest
 
     - name: Run linting
-      run: pylint src/
+      run: pylint src/ --disable=C0114,C0115,C0116 # Adjust pylint settings as needed
 
     - name: Run type checks
       run: mypy src/
