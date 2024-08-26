@@ -7,9 +7,8 @@ import certifi
 from fastapi import FastAPI, HTTPException
 
 # Local imports
-from quake_log_utils import (
-    parse_log, get_total_kills, get_player_kills, get_kills_by_means, get_used_means_by_player
-)
+from ..quake_log_utils import parse_log, get_total_kills, get_player_kills, get_kills_by_means, get_used_means_by_player
+
 
 app = FastAPI()
 
