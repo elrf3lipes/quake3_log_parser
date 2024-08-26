@@ -5,7 +5,7 @@
 ## Overview
 
 This project is a Quake 3 Arena log parser designed to read and analyze game log files. It provides functionalities to parse logs, track game statistics, and generate detailed reports. 
-Application is modular and dockerized with integrated FastAPI for easy deployment and scalability.
+Application is modular and dockerized with integrated FastAPI for easy deployment and scalability, integrated with Github workflow for CI/CD practices.
 
 ## Project Structure
 
