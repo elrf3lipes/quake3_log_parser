@@ -21,19 +21,19 @@ jobs:
       with:
         python-version: "3.10"
         architecture: "x64"
-      env:
-        AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
         pip install pylint mypy pytest
+        pip install types-aiofiles  # Install type stubs explicitly
 
     - name: Run linting
       run: pylint quake_api --disable=C0114,C0115,C0116,C0301,E0402 # Pointing to quake_api
 
     - name: Run type checks
-      run: mypy quake_api
+      run: |
+        mypy --config-file mypy.ini quake_api
 
     - name: Run tests
       run: pytest

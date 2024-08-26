@@ -1,5 +1,7 @@
 import ssl
 import os
+from typing import Dict, Any
+
 
 import aiohttp
 import aiofiles
@@ -7,7 +9,7 @@ import certifi
 from fastapi import FastAPI, HTTPException
 
 # Local imports
-from ..quake_log_utils import parse_log, get_total_kills, get_player_kills, get_kills_by_means, get_used_means_by_player
+from quake_log_utils import parse_log, get_total_kills, get_player_kills, get_kills_by_means, get_used_means_by_player
 
 
 app = FastAPI()
@@ -21,7 +23,7 @@ GIST_URL = (
 FILE_NAME = "qgames.log"
 
 # Cache to store parsed log data
-cache = {}
+cache: dict[str, Any] = {}
 
 
 async def download_log_file(url: str, file_path: str):
