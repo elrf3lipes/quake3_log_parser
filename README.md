@@ -60,51 +60,27 @@ This FastAPI application provides endpoints for parsing and analyzing Quake log 
 The API directly accesses and temporarily processes the log file from a GitHub Gist. A global cache dictionary stores the parsed log data keyed by the file path, which is used by all endpoints. 
 The cache is updated when a new log file is parsed and eventually deleted after processing.
 
+## FastAPI Application Documentation
+
+### Overview
+
+This FastAPI application provides endpoints for parsing and analyzing Quake log files. It supports uploading, parsing logs, and retrieving various statistics. The API directly accesses and temporarily processes log files from GitHub Gists, with parsed data stored in a global cache.
+
 ### Endpoints
 
-1. **POST /parse_log**
-   - **Description**: Upload and parse a log file.
-   - **Request Body**:
-     ```json
-     {
-       "file_path": "path_to_log_file"
-     }
-     ```
-   - **Responses**:
-     - `200 OK`: Returns the parsed game data.
-     - `404 Not Found`: If the log file does not exist.
-     - `400 Bad Request`: For invalid log file contents.
-     - `500 Internal Server Error`: For unexpected errors.
+- **POST /parse_log** - Upload and parse a log file.
+- **GET /download_and_parse** - Download a log file from GitHub Gist, parse it, and delete the file.
+- **GET /player_kills** - Retrieve player kill statistics from cached log data.
+- **GET /means_usage** - Retrieve usage statistics of different kill means from cached log data.
+- **GET /total_kills** - Retrieve the total number of kills from cached log data.
+- **GET /used_means_by_player** - Retrieve means of death used by each player from cached log data.
 
-2. **GET /download_and_parse**
-   - **Description**: Downloads a log file from a GitHub Gist, parses it, and deletes the file.
-   - **Responses**:
-     - `200 OK`: Returns the parsed game data.
-     - `500 Internal Server Error`: For errors during download, parsing, or file operations.
+### Responses
 
-3. **GET /player_kills**
-   - **Description**: Retrieves and returns player kill statistics from the cached log data.
-   - **Responses**:
-     - `200 OK`: Returns player kill statistics sorted by number of kills.
-     - `500 Internal Server Error`: For issues with parsing or accessing cached data.
-
-4. **GET /means_usage**
-   - **Description**: Retrieves and returns the usage statistics of different kill means from the cached log data.
-   - **Responses**:
-     - `200 OK`: Returns kill means usage sorted by count.
-     - `500 Internal Server Error`: For issues with parsing or accessing cached data.
-
-5. **GET /total_kills**
-   - **Description**: Retrieves and returns the total number of kills from the cached log data.
-   - **Responses**:
-     - `200 OK`: Returns the total number of kills.
-     - `500 Internal Server Error`: For issues with parsing or accessing cached data.
-
-6. **GET /used_means_by_player**
-   - **Description**: Retrieves and returns the means of death used by each player from the cached log data.
-   - **Responses**:
-     - `200 OK`: Returns means used by each player, sorted by frequency.
-     - `500 Internal Server Error`: For issues with parsing or accessing cached data.
+- `200 OK`: Successful request; returns the requested data.
+- `400 Bad Request`: Invalid request or log file contents.
+- `404 Not Found`: Requested resource not found.
+- `500 Internal Server Error`: Unexpected error during processing.
 
 
 ## Setup and Installation
@@ -131,10 +107,15 @@ The cache is updated when a new log file is parsed and eventually deleted after 
     uvicorn quake_api.main:app --reload
     ```
 
-5. **Run Tests**:
+5. **Interactively Test the API**:
+    - **Swagger UI**: Open interactive API documentation at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+    - **ReDoc**: View detailed API documentation at [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc).
+
+6. **Run Tests**:
     ```sh
     pytest
     ```
+    
 
 ## Notes
 
