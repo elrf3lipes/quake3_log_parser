@@ -1,18 +1,24 @@
+import ssl
+import os
+
 import aiohttp
 import aiofiles
-import ssl
 import certifi
-import os
 from fastapi import FastAPI, HTTPException
-from typing import Dict
 
-# Import the necessary functions from quake_log_utils
-from quake_log_utils import parse_log, get_total_kills, get_player_kills, get_kills_by_means, get_used_means_by_player
+# Local imports
+from quake_log_utils import (
+    parse_log, get_total_kills, get_player_kills, get_kills_by_means, get_used_means_by_player
+)
 
 app = FastAPI()
 
 # URL to the log file
-GIST_URL = "https://gist.githubusercontent.com/cloudwalk-tests/be1b636e58abff14088c8b5309f575d8/raw/df6ef4a9c0b326ce3760233ef24ae8bfa8e33940/qgames.log"
+GIST_URL = (
+    "https://gist.githubusercontent.com/cloudwalk-tests/"
+    "be1b636e58abff14088c8b5309f575d8/raw/"
+    "df6ef4a9c0b326ce3760233ef24ae8bfa8e33940/qgames.log"
+)
 FILE_NAME = "qgames.log"
 
 # Cache to store parsed log data
@@ -54,7 +60,7 @@ async def download_and_parse():
     except HTTPException as e:
         raise e
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e)) from e
 
 
 @app.get("/player_kills")
@@ -62,10 +68,12 @@ async def player_kills_endpoint():
     try:
         games = await get_or_parse_log(FILE_NAME)
         player_kills = get_player_kills(games)
-        sorted_player_kills = dict(sorted(player_kills.items(), key=lambda item: item[1], reverse=True))
+        sorted_player_kills = dict(
+            sorted(player_kills.items(), key=lambda item: item[1], reverse=True)
+        )
         return {"player_kills": sorted_player_kills}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e)) from e
 
 
 @app.get("/means_usage")
@@ -73,10 +81,12 @@ async def means_usage_endpoint():
     try:
         games = await get_or_parse_log(FILE_NAME)
         kills_by_means = get_kills_by_means(games)
-        sorted_means_usage = dict(sorted(kills_by_means.items(), key=lambda item: item[1], reverse=True))
+        sorted_means_usage = dict(
+            sorted(kills_by_means.items(), key=lambda item: item[1], reverse=True)
+        )
         return {"means_usage": sorted_means_usage}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e)) from e
 
 
 @app.get("/total_kills")
@@ -86,7 +96,7 @@ async def total_kills_endpoint():
         total_kills = get_total_kills(games)
         return {"total_kills": total_kills}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e)) from e
 
 
 @app.get("/used_means_by_player")
@@ -100,4 +110,4 @@ async def used_means_by_player_endpoint():
         }
         return {"used_means_by_player": sorted_means_by_player}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e)) from e
