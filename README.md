@@ -9,6 +9,7 @@ Application is modular and dockerized with integrated FastAPI for easy deploymen
 
 ## Project Structure
 
+```
 Quake3_log_parser
 ├── .github
 │   └── workflows
@@ -27,7 +28,7 @@ Quake3_log_parser
 ├── requirements.txt
 ├── test_log.txt - Test data file for verifying parsing functionality.
 └── test_quake_log_utils.py - Unit tests for the Quake log parsing utilities.
-
+```
 
 ## Features
 
