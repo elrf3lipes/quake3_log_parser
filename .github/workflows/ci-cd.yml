@@ -30,10 +30,10 @@ jobs:
         pip install pylint mypy pytest
 
     - name: Run linting
-      run: pylint src/ --disable=C0114,C0115,C0116 # Adjust pylint settings as needed
+      run: pylint quake_api --disable=C0114,C0115,C0116 # Pointing to quake_api
 
     - name: Run type checks
-      run: mypy src/
+      run: mypy quake_api
 
     - name: Run tests
       run: pytest
