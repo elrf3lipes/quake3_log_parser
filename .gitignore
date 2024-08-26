@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+.env
+
+# Virtual environment
+venv/
+.venv/
+
+# Docker
+*.dockerignore
+Dockerfile
+docker-compose.yml
+
+# IDEs
+.vscode/
+.idea/
