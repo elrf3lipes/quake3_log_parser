@@ -6,7 +6,7 @@ from reporting import print_report
 
 async def main():
     # Test archive path for production
-    log_file_path = "/Users/ramonsaldanha/PycharmProjects/CloudWalk_Assessment/quake_log.txt"
+    log_file_path = "quake_log.txt"
 
     try:
         # Parse the log file and print the report
