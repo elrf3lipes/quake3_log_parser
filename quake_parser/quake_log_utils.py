@@ -77,7 +77,7 @@ async def parse_log(file_path):
 
         matches = kill_pattern.findall(line)
         for match in matches:
-            killer_id, victim_id, mod, killer, victim, weapon = match
+            _, _, mod, killer, victim, _ = match  # Ignore the unused variables
 
             current_game['total_kills'] += 1
             current_game['players'].add(victim)
