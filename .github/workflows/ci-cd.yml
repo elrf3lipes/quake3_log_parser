@@ -5,12 +5,12 @@ on:
     branches:
       - master
     paths:
-      - 'quake_api/main.py'  # Adjust this path as needed
+      - 'quake_api/main.py'
   pull_request:
     branches:
       - master
     paths:
-      - 'quake_api/main.py'  # Adjust this path as needed
+      - 'quake_api/main.py'
 
 jobs:
   lint-test-build:
