@@ -14,14 +14,13 @@ async def test_file_not_found():
 
 @pytest.mark.asyncio
 async def test_empty_file():
-    # Create an empty file
     empty_file_path = "empty_log.txt"
-    open(empty_file_path, 'w').close()
+    with open(empty_file_path, 'w') as f:
+        pass  # Just create an empty file
 
     with pytest.raises(ValueError, match="The log file is empty."):
         await parse_log(empty_file_path)
 
-    # Cleanup
     os.remove(empty_file_path)
 
 

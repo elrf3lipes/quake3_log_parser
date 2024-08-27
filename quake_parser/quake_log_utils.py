@@ -1,8 +1,8 @@
 # This code contains utility functions for parsing log data.
 
 import re
-import aiofiles
 from collections import defaultdict
+import aiofiles
 
 # Means of death mapping
 means_of_death = {
@@ -49,14 +49,13 @@ async def parse_log(file_path):
             if not content.strip():  # Check if the file is empty
                 raise ValueError("The log file is empty.")
 
-    except FileNotFoundError:
-        raise FileNotFoundError(f"The file '{file_path}' does not exist.")
+    except (FileNotFoundError, ValueError) as e:
 
-    except ValueError as ve:
-        raise ve
+        raise
 
     except Exception as e:
-        raise RuntimeError(f"An error occurred while reading the file: {str(e)}")
+
+        raise RuntimeError(f"An error occurred: {str(e)}")
 
     async with aiofiles.open(file_path, 'r') as file:
         content = await file.read()
@@ -137,5 +136,3 @@ def get_used_means_by_player(games):
     }
 
     return sorted_player_means
-
-
