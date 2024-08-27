@@ -91,7 +91,7 @@ FastAPI application was created to provide endpoints for uploading, parsing logs
 
 2. **Create and Activate a Virtual Environment**:
     ```sh
-    python -m venv venv
+    python -m venv venv  # Use `python3 -m venv venv` if you have issues
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
 
