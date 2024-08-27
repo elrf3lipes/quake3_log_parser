@@ -16,18 +16,23 @@ Quake3_log_parser
 │       └── ci-cd.yml - CI/CD configuration file.
 ├── .pytest_cache
 ├── quake_api
+│   ├── __init__.py
 │   └── main.py - FastAPI application with endpoints to interact with parsed log data.
+├── quake_parser
+│   ├── __init__.py
+│   ├── quake_log_parser.py - Coordinates log parsing and report generation.
+│   ├── quake_log_utils.py - Contains utility functions for parsing log data.
+│   └── reporting.py - Generates reports and rankings from parsed game data.
+├── tests
+│   ├── __init__.py
+│   ├── test_log.txt - Test data file for verifying parsing functionality.
+│   └── test_quake_log_utils.py - Unit tests for the Quake log parsing utilities.
 ├── venv
 ├── .dockerignore
 ├── .gitignore
 ├── Dockerfile
 ├── quake_log.txt - Example log file used for local development.
-├── quake_log_parser.py - Coordinates log parsing and report generation.
-├── quake_log_utils.py - Contains utility functions for parsing log data.
-├── reporting.py - Generates reports and rankings from parsed game data.
-├── requirements.txt
-├── test_log.txt - Test data file for verifying parsing functionality.
-└── test_quake_log_utils.py - Unit tests for the Quake log parsing utilities.
+└── requirements.txt
 ```
 
 ## Features
