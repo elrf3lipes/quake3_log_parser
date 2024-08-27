@@ -5,7 +5,7 @@
 ## Overview
 
 This project is a Quake 3 Arena log parser designed to read and analyze game log files. It provides functionalities to parse logs, track game statistics, and generate detailed reports. 
-Application is modular and dockerized with integrated FastAPI for easy deployment and scalability, integrated with Github workflow for CI/CD practices.
+Application is modular and dockerized with integrated FastAPI for easy deployment and scalability, along with Github workflow for CI/CD practices.
 
 ## Project Structure
 
@@ -17,7 +17,7 @@ Quake3_log_parser
 ├── .pytest_cache
 ├── quake_api
 │   ├── __init__.py
-│   └── main.py - FastAPI application with endpoints to interact with parsed log data.
+│   └── main.py - FastAPI endpoints to interact with instantly fetched and parsed log data.
 ├── quake_parser
 │   ├── __init__.py
 │   ├── quake_log_parser.py - Coordinates log parsing and report generation.
@@ -91,7 +91,7 @@ FastAPI application was created to provide endpoints for uploading, parsing logs
 
 2. **Create and Activate a Virtual Environment**:
     ```sh
-    python -m venv venv
+    python -m venv venv  # Use `python3 -m venv venv` if you have issues
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
 
