@@ -17,7 +17,7 @@ Quake3_log_parser
 ├── .pytest_cache
 ├── quake_api
 │   ├── __init__.py
-│   └── main.py - FastAPI application with endpoints to interact with parsed log data.
+│   └── main.py - FastAPI endpoints to interact with instantly fetched and parsed log data.
 ├── quake_parser
 │   ├── __init__.py
 │   ├── quake_log_parser.py - Coordinates log parsing and report generation.
