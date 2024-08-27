@@ -80,8 +80,8 @@ FastAPI application was created to provide endpoints for uploading, parsing logs
 
 1. **Clone the Repository**:
     ```sh
-    git clone <repo-url>
-    cd CloudWalk_Assessment
+    git clone https://github.com/elrf3lipes/quake3_log_parser
+    cd quake3_log_parser
     ```
 
 2. **Create and Activate a Virtual Environment**:
@@ -113,9 +113,7 @@ FastAPI application was created to provide endpoints for uploading, parsing logs
 ## Notes
 
 - The project includes asynchronous processing to handle large log files efficiently, though performance gains may not be significant with smaller files.
-- Player ranking is based on kill count. Players with the same number of kills are ordered by their appearance in the log. 
-- After much consideration(and a bit of indecision..) I've decided to take into consideration quake3 arena rule called the -1 frag behavior, which was introduced to prevent people from deliberately suiciding when near death. 
-People would do that in order to deny a frag to another player. If you die by any means other than another player killing you then you lose a frag.
+- Player ranking is based on kill count. Players with the same number of kills are ordered by their appearance in the log as per Quake3 rules.
 - `<world>` and self-kills are handled according to the -1 frag behavior, where a player loses a frag for deaths not caused by other players, these still count in the total_kills
 
 ## Contribution
