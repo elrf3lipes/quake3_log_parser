@@ -1,7 +1,7 @@
 # quake_log_utils.py
 
-import aiofiles
 import re
+import aiofiles
 from collections import defaultdict
 
 # Means of death mapping

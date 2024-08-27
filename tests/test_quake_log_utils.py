@@ -1,9 +1,9 @@
 # Contains unit tests for verifying the Quake log parsing functionality.
 
+import os
 import pytest
 import aiofiles
 from quake_parser.quake_log_utils import parse_log  # Import the standalone function directly
-import os
 
 
 @pytest.mark.asyncio

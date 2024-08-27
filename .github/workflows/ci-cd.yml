@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'quake_api/main.py'  # Adjust this path as needed
   pull_request:
     branches:
       - master
+    paths:
+      - 'quake_api/main.py'  # Adjust this path as needed
 
 jobs:
   lint-test-build:
@@ -29,13 +33,10 @@ jobs:
 
     - name: Run linting
       run: pylint quake_api quake_parser tests --disable=C0114,C0115,C0116,C0301,E0402
-      # Updated to lint the new directories
 
     - name: Run tests
-      run: pytest
-      # Ensure your tests directory is included, adjust if necessary
+      run: pytest tests
 
     - name: Build Docker image
       run: |
         docker build -t my-fastapi-app .
-      # Confirm Dockerfile path or build context is correct if needed
