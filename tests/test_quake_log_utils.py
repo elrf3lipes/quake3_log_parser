@@ -1,4 +1,4 @@
-# Contains unit tests for verifying the Quake log parsing functionality.
+# This code contains unit tests for verifying the Quake log parsing functionality.
 
 import os
 import pytest

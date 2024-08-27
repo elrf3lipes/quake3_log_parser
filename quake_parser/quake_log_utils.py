@@ -1,4 +1,4 @@
-# quake_log_utils.py
+# This code contains utility functions for parsing log data.
 
 import re
 import aiofiles
