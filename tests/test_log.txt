@@ -1,0 +1,7 @@
+
+    0:00 InitGame: \\sv_hostname\\CodeMiner Quake 3 Arena
+    0:25 Kill: 2 3 7: Isgalamido killed Dono da Bola by MOD_ROCKET_SPLASH
+    0:35 Kill: 2 2 7: <world> killed Isgalamido by MOD_ROCKET_SPLASH
+    0:50 Kill: 2 3 7: Isgalamido killed Isgalamido by MOD_SUICIDE
+    1:10 ShutdownGame:
+    

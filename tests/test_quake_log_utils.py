@@ -2,7 +2,7 @@
 
 import pytest
 import aiofiles
-from quake_log_utils import parse_log  # Import the standalone function directly
+from quake_parser.quake_log_utils import parse_log  # Import the standalone function directly
 import os
 
 
@@ -38,6 +38,7 @@ async def test_wrong_file_format():
     finally:
         os.remove(wrong_format_path)  # Cleanup
 
+
 @pytest.mark.asyncio
 async def test_parse_log():
     # Sample log content to test
@@ -65,7 +66,7 @@ async def test_parse_log():
     assert games[0]['kills'].get("Dono da Bola", 0) == 0  # Dono da Bola should have 0 kills
     assert "<world>" not in games[0]['kills']  # <world> should not appear in kills dictionary
 
-    # Ranking should not include players with <= 0 kills
+    # Ranking should not include players with < 0 kills
     filtered_kills = {player: kills for player, kills in games[0]['kills'].items() if kills > 0}
     ranking = sorted(filtered_kills.items(), key=lambda item: item[1], reverse=True)
     assert all(kills < 0 for player, kills in ranking) or not ranking  # Ranking should only include positive kills
