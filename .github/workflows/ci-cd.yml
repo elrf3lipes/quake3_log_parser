@@ -26,14 +26,16 @@ jobs:
       run: |
         pip install -r requirements.txt
         pip install pylint pytest
-        # Removed mypy and types-aiofiles installation
 
     - name: Run linting
-      run: pylint quake_api --disable=C0114,C0115,C0116,C0301,E0402
+      run: pylint quake_api quake_parser tests --disable=C0114,C0115,C0116,C0301,E0402
+      # Updated to lint the new directories
 
     - name: Run tests
       run: pytest
+      # Ensure your tests directory is included, adjust if necessary
 
     - name: Build Docker image
       run: |
         docker build -t my-fastapi-app .
+      # Confirm Dockerfile path or build context is correct if needed
