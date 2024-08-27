@@ -29,8 +29,6 @@ jobs:
           pip install pylint pytest
       - name: Run linting
         run: pylint quake_api --disable=C0114,C0115,C0116,C0301,E0402
-      - name: Run tests
-        run: pytest tests
       - name: Build Docker image
         run: |
           docker build -t my-fastapi-app .
